@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 
 export default function MainP1() {
 
@@ -14,8 +15,6 @@ export default function MainP1() {
             promess.catch(error =>console.log(error.answer));
         }, []);
 
-        
-
     return (
 
         <main>
@@ -26,11 +25,11 @@ export default function MainP1() {
             </div>
             <div className="Main__BannerMovie">
                 {
-                    movies.map(movie => {return <img key={movie.id} src={movie.posterURL} alt=""/>})
+                    movies.map(movie => {return <Link to={`/movieinfo/${movie.id}`}><img key={movie.id} src={movie.posterURL} alt=""></img></Link>})
                 }
             </div>
         </main>
-
+        
     )
 
 }
