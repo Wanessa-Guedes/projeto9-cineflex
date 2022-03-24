@@ -1,23 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import PageOne from "../PageOne";
-import PageTwo from "../PageTwo";
+//import PageOne from "../PageOne";
+//import PageTwo from "../PageTwo";
+import PageThree from "../PageThree";
 import Header from "../Header";
 
 export default function App(){
     return(
 
-    <BrowserRouter>
+/*     <BrowserRouter>
             <Header />
             <Routes>
                 <Route path="/" element={<PageOne />}></Route>
                 <Route path="/movieinfo/:movieId" element={<PageTwo />}></Route>
             </Routes>
-        </BrowserRouter>
-/*         <>
+        </BrowserRouter> */
+        <>
             <Header />
-            
-        </> */
+            <PageThree />
+        </>
 
     )
 }

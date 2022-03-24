@@ -1,11 +1,11 @@
 
 
-export default function FooterPageTwo(){
+export default function FooterPageTwo(props){
     return(
         <>
             <footer>
-                <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg" alt=""/>
-                <h1>Enola Holmes</h1>
+                <img src={props.url} alt=""/>
+                <h1>{props.title}</h1>
             </footer>
         </>
     )
