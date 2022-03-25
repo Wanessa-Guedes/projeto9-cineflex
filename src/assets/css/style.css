@@ -253,3 +253,67 @@ footer img{
     display: flex;
     justify-content: center;
 }
+
+.notavailable{
+    background: #FBE192;
+}
+
+.selected{
+    background: #8DD7CF;
+}
+
+.Main__PageFour{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    height: calc(100vw);
+    justify-content: space-evenly;
+}
+
+
+.Main__PageFour_Encaps {
+    width: 90%;
+    height: calc(100vw*0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 62px;
+}
+
+.Main__HeadP1.headP4 p{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #247A6B;
+}
+
+.main__page4_infosFilmes{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
+
+.main__page4_subInfosFilmes{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    color: #293845;
+}

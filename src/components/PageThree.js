@@ -1,33 +1,38 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import FooterPageThree from "./FooterPageThree";
+import PageThreeSeatsAvb from "./PageThreeeSeatsAvb";
 
 export default function PageThree() {
 
-    //const assentos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     const [nameReservation, setNameReservation] = useState("");
+    const [testeAssento, setTesteAssento] = useState([]);
+    const [seatReservation, setSeatReservation] = useState(false);
 
-    const {sessionId} = useParams();
-    //console.log(sessionId)
+    const { sessionId } = useParams();
+
     const [infosreservation, setInfosReservation] = useState({
-        day:{},
-        movie:{},
+        day: {},
+        movie: {},
         seats: []
     });
 
     useEffect(() => {
         const promess = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionId}/seats`);
         promess.then(response => {
-            const {data} = response;
-            //console.log(data)
+            const { data } = response;
             setInfosReservation(data);
         })
-        promess.catch(error =>console.log(error.response));
+        promess.catch(error => console.log(error.response));
     }, [sessionId]);
 
-    console.log(infosreservation.seats)
+    function notAvailableSeat() {
+        alert("Assento indisponível, por favor escolha outro!")
+    }
+
 
     return (
         <>
@@ -38,12 +43,18 @@ export default function PageThree() {
                     </p>
                 </div>
                 <div className="Main__PageThree">
+
                     {
                         infosreservation.seats.map((assento, index) => {
-                            if (assento.name < 10) { return <p key={index} className="Main___PageThree_Seats">0{assento.name}</p> }
-                            else { return <p key={index} className="Main___PageThree_Seats">{assento.name}</p> }
+                            if (!assento.isAvailable) {
+                                if (assento.name < 10) { return <p key={index} className="Main___PageThree_Seats notavailable" onClick={() => notAvailableSeat()}>0{assento.name}</p> }
+                                else { return <p key={index} className="Main___PageThree_Seats notavailable" onClick={() => notAvailableSeat()}>{assento.name}</p> }
+                            } else {
+                                return <PageThreeSeatsAvb seat={assento.name} index={index} idseat={assento.id} updateSeats={updateSeats => setTesteAssento([...testeAssento, updateSeats])} />
+                            }
                         })
                     }
+
                 </div>
                 <div className="Main__PageThree__ContainInfosSeats">
                     <div className="Main__PageThree__ContainerInfos">
@@ -62,7 +73,7 @@ export default function PageThree() {
                 <div className="Main___PageThree_BuyerInfos">
                     <div>
                         <p> Nome do Comprador:</p>
-                        <input type="text" placeholder="Digite seu nome" onChange={nameReservation => setNameReservation(...nameReservation.target.value)}></input>
+                        <input type="text" placeholder="Digite seu nome" onChange={nameReservation => setNameReservation(nameReservation.target.value)}></input>
                     </div>
 
                     <div>
@@ -71,11 +82,11 @@ export default function PageThree() {
                     </div>
                 </div>
                 <div className="Main___PageThree_ReserveButton">
-                    Reservar assento(s)
+                    <Link to={`/movieinfo/movieId/final`} ><p> Reservar assento(s) </p></Link>
                 </div>
             </main>
 
-            <FooterPageThree url={infosreservation.movie.posterURL} title={infosreservation.movie.title} day={infosreservation.day.weekday} hour={infosreservation.name}/>
+            <FooterPageThree url={infosreservation.movie.posterURL} title={infosreservation.movie.title} day={infosreservation.day.weekday} hour={infosreservation.name} />
         </>
     )
 }
