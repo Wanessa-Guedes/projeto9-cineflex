@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import FooterPageTwo from "./FooterPageTwo";
 
@@ -36,9 +37,9 @@ export default function PageTwo() {
                             </div>
                             <div className="Main___PageTwo__MovieTime">
                             {
-                                infoFilme.showtimes.map(info => {
+                                infoFilme.showtimes.map((info,index) => {
                                     return (
-                                            <div className="Main__PageTwo__borderTime"><p>{info.name}</p></div>
+                                            <div key={index} className="Main__PageTwo__borderTime"><Link to={`/movieinfo/movieId/${info.id}`}><p>{info.name}</p></Link></div>
                                         )
                                 })
                             }

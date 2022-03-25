@@ -223,3 +223,33 @@ footer img{
     align-items: center;
     justify-content: center;
 }
+
+.Main___PageThree_BuyerInfos {
+    width: 90%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100px;
+    margin-bottom: 57px;
+}
+
+.Main___PageThree_ReserveButton{
+    background: #E8833A;
+    border-radius: 3px;
+    width: 225px;
+    height: 42px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
