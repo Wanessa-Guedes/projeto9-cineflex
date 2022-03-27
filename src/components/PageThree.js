@@ -12,7 +12,7 @@ export default function PageThree() {
     const [testeAssento, setTesteAssento] = useState([]);
     const [seatReservation, setSeatReservation] = useState(false);
 
-    const { sessionId } = useParams();
+    const {sessionId} = useParams();
 
     const [infosreservation, setInfosReservation] = useState({
         day: {},
