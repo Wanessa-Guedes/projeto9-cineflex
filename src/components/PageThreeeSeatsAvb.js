@@ -1,10 +1,9 @@
 
-import { useState } from "react";
 import styled from "styled-components";
 
 export default function PageThreeSeatsAvb(props) {
 
-    const {seat, index, idseat, disponivel, selecionado, updateSeats} = props;
+    const {seat, idseat, disponivel, selecionado, updateSeats} = props;
 
     function selecionarAssento(){
         if(!disponivel) alert('Esse assento não está disponível, por favor, escolha outro.');

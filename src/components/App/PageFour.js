@@ -1,11 +1,16 @@
 
-import { useParams } from "react-router-dom";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AppContext from "../../AppContext/Context";
 
 export default function PageFour() {
 
-    const {filme} = useContext(AppContext)
+    const {dadosFinais} = useContext(AppContext);
+    const {assentos, cpf, dia, filme, horario, nome} = dadosFinais;
+    const assentosComprados = [...assentos.values()];
+    const navigate = useNavigate();
+
+    //console.log(assentosComprados);
 
     return (
         <>
@@ -19,22 +24,25 @@ export default function PageFour() {
                     <div className="Main__PageFour">
                         <p className="main__page4_infosFilmes"> Filme e sessão</p>
                         <p className="main__page4_subInfosFilmes">{filme}</p>
-                        <p className="main__page4_subInfosFilmes">24/06/2021 15:00</p>
+                        <p className="main__page4_subInfosFilmes">{dia} {horario}</p>
                     </div>
                     <div className="Main__PageFour">
                         <p className="main__page4_infosFilmes">Ingressos</p>
-                        <p className="main__page4_subInfosFilmes">Assento 15</p>
-                        <p className="main__page4_subInfosFilmes">Assento 16</p>
+                        {
+                            assentosComprados.map(assento => {return (
+                            <p key={assento} className="main__page4_subInfosFilmes"> Assento {assento}</p>
+                            )})
+                        }
                     </div>
                     <div className="Main__PageFour">
                         <p className="main__page4_infosFilmes">Comprador</p>
-                        <p className="main__page4_subInfosFilmes">Nome: João da Silva Sauro</p>
-                        <p className="main__page4_subInfosFilmes">CPF: 123.456.789-10</p>
+                        <p className="main__page4_subInfosFilmes">Nome: {nome}</p>
+                        <p className="main__page4_subInfosFilmes">CPF: {cpf}</p>
                     </div>
                 </div>
-                <div className="Main___PageThree_ReserveButton">
+                <button onClick={() => navigate("/")} className="Main___PageThree_ReserveButton">
                     Voltar pra Home
-                </div>
+                </button>
             </main>
         </>
     )

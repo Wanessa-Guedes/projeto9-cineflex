@@ -114,6 +114,9 @@ main {
     margin: 22px 8px 22px 0;
 }
 
+.Main__PageTwo__borderTime a{
+    text-decoration: none;
+}
 
 footer{
     width: 100%;

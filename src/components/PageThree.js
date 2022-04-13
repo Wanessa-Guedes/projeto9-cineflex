@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AppContext from "../AppContext/Context";
 
@@ -10,9 +9,6 @@ import PageThreeSeatsAvb from "./PageThreeeSeatsAvb";
 
 export default function PageThree() {
 
-    const [nameReservation, setNameReservation] = useState("");
-    const [testeAssento, setTesteAssento] = useState([]);
-    const [seatReservation, setSeatReservation] = useState(false);
     const [seatStatus, setSeatStatus] = useState(new Map())
     const [dadosCompra, setDadosCompra] = useState({ nome: "", cpf: "" });
 
