@@ -1,8 +1,11 @@
 
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import AppContext from "../../AppContext/Context";
 
 export default function PageFour() {
 
+    const {filme} = useContext(AppContext)
 
     return (
         <>
@@ -15,7 +18,7 @@ export default function PageFour() {
                 <div className="Main__PageFour_Encaps">
                     <div className="Main__PageFour">
                         <p className="main__page4_infosFilmes"> Filme e sessão</p>
-                        <p className="main__page4_subInfosFilmes">Enola Holmes</p>
+                        <p className="main__page4_subInfosFilmes">{filme}</p>
                         <p className="main__page4_subInfosFilmes">24/06/2021 15:00</p>
                     </div>
                     <div className="Main__PageFour">
